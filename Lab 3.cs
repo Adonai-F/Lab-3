@@ -28,11 +28,13 @@ namespace Lab_3
         public Lab3()
         {
             InitializeComponent();
+            // Initialize array
             int[,] units = new int[3, 7];
+
 
         }
 
-       
+
         #region "Event Handlers"
         private void buttonEnter_Click(object sender, EventArgs e)
         {
@@ -45,15 +47,15 @@ namespace Lab_3
             const int MiniumumRange = 0;
             const int MaximumRange = 5000;
 
-            for(employee = 0; employee < units.GetLength(0); employee++) 
+            for(employee = 0; employee < units.GetUpperBound(0); employee++) 
             {
                 while (go)
                 {
                     if (int.TryParse(textBoxUnits.Text, out validUnits) && (validUnits > MiniumumRange & validUnits < MaximumRange))
                     {
-                        for (shipped = 0; shipped < units.GetLength(1); shipped++)
+                        for (shipped = 0; shipped < units.GetUpperBound(1); shipped++)
                         {
-                            units[employee, shipped] = validUnits;
+                            units.SetValue(validUnits, employee, shipped); 
                             sum += validUnits;
                         }
                         double employeeAverage = sum / AverageNumber;
@@ -78,6 +80,7 @@ namespace Lab_3
                             counter++;
                             double employee2 = employeeAverage;
                             totalAverage += employee2;
+
                             employeeAverage = 0;
                             if (counter == LastUnit) { labelEmployeeAverage2.Text = "Average: " + Math.Round(employee2, 2); }
                             
@@ -91,10 +94,10 @@ namespace Lab_3
                             counter++;
                             double employee3 = employeeAverage;
                             totalAverage += employee3;
-                            
+                            labelEmployeeAverage3.Text = "Average: " + Math.Round(employee3, 2);
                             employeeAverage = 0;
                             if (counter == 23) {
-                                labelEmployeeAverage3.Text = "Average: " + Math.Round(employee3, 2);
+                                labelEmployee3.Text = "The Average amount for Employee 3 is: " + Math.Round(employee3, 2);
                                 go = false;
                             }
                         }
