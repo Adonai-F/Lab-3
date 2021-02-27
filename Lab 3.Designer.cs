@@ -53,11 +53,11 @@ namespace Lab_3
             // 
             this.labelDayCounter.AutoSize = true;
             this.labelDayCounter.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDayCounter.Location = new System.Drawing.Point(251, 37);
+            this.labelDayCounter.Location = new System.Drawing.Point(278, 36);
             this.labelDayCounter.Name = "labelDayCounter";
-            this.labelDayCounter.Size = new System.Drawing.Size(75, 37);
+            this.labelDayCounter.Size = new System.Drawing.Size(112, 37);
             this.labelDayCounter.TabIndex = 0;
-            this.labelDayCounter.Text = "Day";
+            this.labelDayCounter.Text = "Day: 1";
             this.toolTipEmployeeAverage.SetToolTip(this.labelDayCounter, "What day you are inputting units for");
             // 
             // labelUnitsInput
@@ -227,6 +227,8 @@ namespace Lab_3
             this.Controls.Add(this.labelUnitsInput);
             this.Controls.Add(this.labelDayCounter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Lab3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Average Units Shipped By Employee";
