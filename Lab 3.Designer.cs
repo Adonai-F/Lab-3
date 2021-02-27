@@ -146,6 +146,7 @@ namespace Lab_3
             this.buttonEnter.Text = "&Enter";
             this.toolTipEmployeeAverage.SetToolTip(this.buttonEnter, "Press to progress");
             this.buttonEnter.UseVisualStyleBackColor = true;
+            this.buttonEnter.Click += new System.EventHandler(this.buttonEnter_Click);
             // 
             // buttonReset
             // 
@@ -156,6 +157,7 @@ namespace Lab_3
             this.buttonReset.Text = "&Reset";
             this.toolTipEmployeeAverage.SetToolTip(this.buttonReset, "Press to reset form");
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // buttonExit
             // 
@@ -166,6 +168,7 @@ namespace Lab_3
             this.buttonExit.Text = "E&xit";
             this.toolTipEmployeeAverage.SetToolTip(this.buttonExit, "Press to exit form");
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // textBoxUnits
             // 
