@@ -55,9 +55,9 @@ namespace Lab_3
             this.labelDayCounter.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDayCounter.Location = new System.Drawing.Point(251, 37);
             this.labelDayCounter.Name = "labelDayCounter";
-            this.labelDayCounter.Size = new System.Drawing.Size(75, 37);
+            this.labelDayCounter.Size = new System.Drawing.Size(102, 37);
             this.labelDayCounter.TabIndex = 0;
-            this.labelDayCounter.Text = "Day";
+            this.labelDayCounter.Text = "Day 1";
             this.toolTipEmployeeAverage.SetToolTip(this.labelDayCounter, "What day you are inputting units for");
             // 
             // labelUnitsInput
@@ -87,7 +87,7 @@ namespace Lab_3
             this.textBoxEmployee3.Name = "textBoxEmployee3";
             this.textBoxEmployee3.ReadOnly = true;
             this.textBoxEmployee3.Size = new System.Drawing.Size(172, 164);
-            this.textBoxEmployee3.TabIndex = 3;
+            this.textBoxEmployee3.TabIndex = 6;
             this.toolTipEmployeeAverage.SetToolTip(this.textBoxEmployee3, "Units for third employee");
             // 
             // textBoxEmployee2
@@ -115,7 +115,7 @@ namespace Lab_3
             this.labelEmployeeAverage2.Location = new System.Drawing.Point(255, 403);
             this.labelEmployeeAverage2.Name = "labelEmployeeAverage2";
             this.labelEmployeeAverage2.Size = new System.Drawing.Size(172, 29);
-            this.labelEmployeeAverage2.TabIndex = 6;
+            this.labelEmployeeAverage2.TabIndex = 5;
             this.toolTipEmployeeAverage.SetToolTip(this.labelEmployeeAverage2, "Average units shipped for second employee");
             // 
             // labelEmployee3
@@ -139,9 +139,9 @@ namespace Lab_3
             // 
             // buttonEnter
             // 
-            this.buttonEnter.Location = new System.Drawing.Point(87, 526);
+            this.buttonEnter.Location = new System.Drawing.Point(70, 526);
             this.buttonEnter.Name = "buttonEnter";
-            this.buttonEnter.Size = new System.Drawing.Size(88, 37);
+            this.buttonEnter.Size = new System.Drawing.Size(105, 37);
             this.buttonEnter.TabIndex = 9;
             this.buttonEnter.Text = "&Enter";
             this.toolTipEmployeeAverage.SetToolTip(this.buttonEnter, "Press to progress");
@@ -150,7 +150,7 @@ namespace Lab_3
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(302, 526);
+            this.buttonReset.Location = new System.Drawing.Point(285, 526);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(105, 37);
             this.buttonReset.TabIndex = 10;
@@ -161,9 +161,9 @@ namespace Lab_3
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(512, 526);
+            this.buttonExit.Location = new System.Drawing.Point(482, 526);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(80, 37);
+            this.buttonExit.Size = new System.Drawing.Size(105, 37);
             this.buttonExit.TabIndex = 11;
             this.buttonExit.Text = "E&xit";
             this.toolTipEmployeeAverage.SetToolTip(this.buttonExit, "Press to exit form");
@@ -175,7 +175,7 @@ namespace Lab_3
             this.textBoxUnits.Location = new System.Drawing.Point(144, 107);
             this.textBoxUnits.Name = "textBoxUnits";
             this.textBoxUnits.Size = new System.Drawing.Size(76, 26);
-            this.textBoxUnits.TabIndex = 12;
+            this.textBoxUnits.TabIndex = 0;
             this.toolTipEmployeeAverage.SetToolTip(this.textBoxUnits, "Input units shipped");
             // 
             // labelEmployeeAverage3
@@ -184,7 +184,7 @@ namespace Lab_3
             this.labelEmployeeAverage3.Location = new System.Drawing.Point(455, 403);
             this.labelEmployeeAverage3.Name = "labelEmployeeAverage3";
             this.labelEmployeeAverage3.Size = new System.Drawing.Size(172, 29);
-            this.labelEmployeeAverage3.TabIndex = 13;
+            this.labelEmployeeAverage3.TabIndex = 7;
             this.toolTipEmployeeAverage.SetToolTip(this.labelEmployeeAverage3, "Average units shipped for third employee");
             // 
             // labelEmployeeAverage1
@@ -193,7 +193,7 @@ namespace Lab_3
             this.labelEmployeeAverage1.Location = new System.Drawing.Point(48, 403);
             this.labelEmployeeAverage1.Name = "labelEmployeeAverage1";
             this.labelEmployeeAverage1.Size = new System.Drawing.Size(172, 29);
-            this.labelEmployeeAverage1.TabIndex = 14;
+            this.labelEmployeeAverage1.TabIndex = 3;
             this.toolTipEmployeeAverage.SetToolTip(this.labelEmployeeAverage1, "Average units shipped for first employee");
             // 
             // labelEmployee2
@@ -207,8 +207,10 @@ namespace Lab_3
             // 
             // Lab3
             // 
+            this.AcceptButton = this.buttonEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonReset;
             this.ClientSize = new System.Drawing.Size(671, 598);
             this.Controls.Add(this.labelEmployee2);
             this.Controls.Add(this.labelEmployeeAverage1);
@@ -230,6 +232,7 @@ namespace Lab_3
             this.Name = "Lab3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Average Units Shipped By Employee";
+            this.toolTipEmployeeAverage.SetToolTip(this, "This form will calculate the average");
             this.ResumeLayout(false);
             this.PerformLayout();
 

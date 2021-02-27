@@ -17,8 +17,9 @@ namespace Lab_3
         int[,] units = new int[3,7];
 
         // Global Variables.
+        bool go;
         int counter = 0;
-        int dayTracker = 7;
+        int dayTracker = 1;
         double sum = 0;
         double totalAverage = 0;
 
@@ -27,6 +28,7 @@ namespace Lab_3
         public Lab3()
         {
             InitializeComponent();
+            int[,] units = new int[3, 7];
 
         }
 
@@ -34,6 +36,7 @@ namespace Lab_3
         #region "Event Handlers"
         private void buttonEnter_Click(object sender, EventArgs e)
         {
+            
             int validUnits;
             int employee;
             int shipped;
@@ -42,34 +45,80 @@ namespace Lab_3
             const int MiniumumRange = 0;
             const int MaximumRange = 5000;
 
-            for(employee = 0; employee < units.GetLength(0); employee++)
-
-            if(int.TryParse(textBoxUnits.Text, out validUnits) && (validUnits > MiniumumRange & validUnits < MaximumRange))
+            for(employee = 0; employee < units.GetLength(0); employee++) 
             {
-                    if(counter < AverageNumber)
-                    {
-                        textBoxEmployee1.Text += textBoxUnits.Text + "\r\n";
-                        counter++;
-                    }
-                    else if(counter >= AverageNumber && counter < LastUnit)
-                    {
-                        textBoxEmployee2.Text += textBoxUnits.Text + "\r\n";
-                        counter++;
-                    }
-                    else if (counter > LastUnit)
-                    {
-                        textBoxEmployee3.Text += textBoxUnits.Text + "\r\n";
-                        counter++;
-                    }
-
-
-
-
-                    for (shipped = 0; shipped < units.GetLength(1); shipped++) 
+                while (go)
                 {
-                    units[employee, shipped] = validUnits;
-                };
+                    if (int.TryParse(textBoxUnits.Text, out validUnits) && (validUnits > MiniumumRange & validUnits < MaximumRange))
+                    {
+                        for (shipped = 0; shipped < units.GetLength(1); shipped++)
+                        {
+                            units[employee, shipped] = validUnits;
+                            sum += validUnits;
+                        }
+                        double employeeAverage = sum / AverageNumber;
+
+                        if (counter < AverageNumber)
+                        {
+                            textBoxEmployee1.Text += textBoxUnits.Text + "\r\n";
+                            counter++;
+                            labelDayCounter.Text= "Day: " + dayTracker++;
+                            double employee1 = employeeAverage;
+                            totalAverage += employee1;
+                            employeeAverage = 0;
+                            if (counter == AverageNumber) { labelEmployeeAverage1.Text = "Average: " + Math.Round(employee1, 2); }
+                            
+                            // Clear textbox for another input.
+                            textBoxUnits.Clear();
+                            break;
+                        }
+                        else if (counter >= AverageNumber && counter < LastUnit)
+                        {
+                            textBoxEmployee2.Text += textBoxUnits.Text + "\r\n";
+                            counter++;
+                            double employee2 = employeeAverage;
+                            totalAverage += employee2;
+                            employeeAverage = 0;
+                            if (counter == LastUnit) { labelEmployeeAverage2.Text = "Average: " + Math.Round(employee2, 2); }
+                            
+                            // Clear textbox for another input.
+                            textBoxUnits.Clear();
+                            break;
+                        }
+                        else if (counter > LastUnit)
+                        {
+                            textBoxEmployee3.Text += textBoxUnits.Text + "\r\n";
+                            counter++;
+                            double employee3 = employeeAverage;
+                            totalAverage += employee3;
+                            
+                            employeeAverage = 0;
+                            if (counter == 23) {
+                                labelEmployeeAverage3.Text = "Average: " + Math.Round(employee3, 2);
+                                go = false;
+                            }
+                        }
+
+          
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Please input a whole number between " + MiniumumRange + " and " + MaximumRange);
+                        textBoxUnits.SelectAll();
+                        textBoxUnits.Focus();
+                        break;
+                    }
+                }
             }
+            while(go == false) 
+            {
+                double finalTotal = totalAverage / units.GetLength(0);
+                labelDayCounter.Text = "Done";
+                labelTotalAverage.Text = "Total Average: " + finalTotal;
+            }
+            
+
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
