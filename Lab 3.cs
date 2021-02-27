@@ -27,7 +27,7 @@ namespace Lab_3
         int counter = 0;
         int dayTracker = 2;
         double sum = 0;
-        double totalAverage = 0;
+        double employee1Average, employee2Average;
 
         #endregion
 
@@ -46,21 +46,22 @@ namespace Lab_3
             const int MiniumumRange = 0;
             const int MaximumRange = 5000;
 
-            while (counter < 24)
+            while (counter < LastUnit)
             {
                 if (int.TryParse(textBoxUnits.Text, out validUnits) && (validUnits > MiniumumRange & validUnits < MaximumRange))
                 {
                     sum += validUnits;
-                    double employeeAverage = sum / AverageNumber;
 
                     if (counter < AverageNumber)
                     {
                         textBoxEmployee1.Text += textBoxUnits.Text + "\r\n";
                         counter++;
                         employee1 = sum / AverageNumber;
-                        totalAverage += employee1;
+                        Math.Round(employee1);
+                        employee1Average = employee1;
+                       
                         labelDayCounter.Text = "Day: " + dayTracker++;
-                        if (counter == AverageNumber) { labelEmployeeAverage1.Text = "Average: " + Math.Round(employee1, 2); sum = 0; }
+                        if (counter == AverageNumber) { labelEmployeeAverage1.Text = "Average: " + employee1; sum = 0; }
 
                         // Clear textbox for another input.
                         textBoxUnits.Clear();
@@ -71,9 +72,10 @@ namespace Lab_3
                         textBoxEmployee2.Text += textBoxUnits.Text + "\r\n";
                         counter++;
                         employee2 = sum / AverageNumber;
-                        totalAverage += employee2;
+                        Math.Round(employee2, 2);
+                        employee2Average = employee2;
                         labelDayCounter.Text = "Day: " + dayTracker++;
-                        if (counter == MidUnit) { labelEmployeeAverage2.Text = "Average: " + Math.Round(employee2, 2); sum = 0; }
+                        if (counter == MidUnit) { labelEmployeeAverage2.Text = "Average: " + employee2; sum = 0; }
 
                         // Clear textbox for another input.
                         textBoxUnits.Clear();
@@ -84,14 +86,17 @@ namespace Lab_3
                         textBoxEmployee3.Text += textBoxUnits.Text + "\r\n";
                         counter++;
                         employee3 = sum / AverageNumber;
-                        totalAverage += employee3;
+                        Math.Round(employee3, 2);
                         labelDayCounter.Text = "Day: " + dayTracker++;
                         if (counter == LastUnit)
                         {
-                            labelEmployeeAverage3.Text = "Average: " + Math.Round(employee3, 2);
-                            double finalTotal = totalAverage / units.GetLength(0);
+                            labelEmployeeAverage3.Text = "Average: " + employee3;
+                            CalculateTotal(employee1Average, employee2Average, employee3);
                             labelDayCounter.Text = "Done";
-                            labelTotalAverage.Text = "Total Average: " + Math.Round(finalTotal, 2);
+                            validUnits = 0;
+                            employee3 = 0;
+                            
+                            
                         }
                         
                         // Clear textbox for another input.
@@ -111,7 +116,28 @@ namespace Lab_3
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
+            // Reset Variables.
+            counter = 0;
+            dayTracker = 2;
+            sum = 0;
 
+            // Clear all fields.
+            textBoxUnits.Clear();
+            textBoxEmployee1.Clear();
+            textBoxEmployee2.Clear();
+            textBoxEmployee3.Clear();
+            labelTotalAverage.Text = "";
+            labelDayCounter.Text = "Day: 1";
+            labelEmployeeAverage1.Text = "";
+            labelEmployeeAverage2.Text = "";
+            labelEmployeeAverage3.Text = "";
+
+            // Enable input controls.
+            textBoxUnits.Enabled = true;
+            buttonEnter.Enabled = true;
+
+            // Highlight units textbox.
+            textBoxUnits.Focus();
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -140,6 +166,16 @@ namespace Lab_3
             {
                 controlToSet.Enabled = enabledStatus;
             }
+        }
+
+        private void CalculateTotal(double employee1, double employee2, double employee3) {
+            double sum = employee1 + employee2 + employee3;
+            double finalAverage = sum / 3;
+            labelTotalAverage.Text = "Total Average: " + Math.Round(finalAverage, 2);
+            textBoxUnits.Enabled = false;
+            buttonEnter.Enabled = false;
+            buttonReset.Focus();
+            
         }
 
         #endregion
