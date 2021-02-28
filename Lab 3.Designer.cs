@@ -55,9 +55,8 @@ namespace Lab_3
             this.labelDayCounter.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDayCounter.Location = new System.Drawing.Point(278, 36);
             this.labelDayCounter.Name = "labelDayCounter";
-            this.labelDayCounter.Size = new System.Drawing.Size(112, 37);
+            this.labelDayCounter.Size = new System.Drawing.Size(0, 37);
             this.labelDayCounter.TabIndex = 0;
-            this.labelDayCounter.Text = "Day: 1";
             this.toolTipEmployeeAverage.SetToolTip(this.labelDayCounter, "What day you are inputting units for");
             // 
             // labelUnitsInput

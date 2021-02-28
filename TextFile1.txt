@@ -82,3 +82,13 @@ int validUnits;
                 labelDayCounter.Text = "Done";
                 labelTotalAverage.Text = "Total Average: " + finalTotal;
             }
+
+               private void CalculateTotal(double finalAverage) 
+        {
+            double total = 0;
+
+            total = finalAverage / EmployeeTotal;
+
+            labelTotalAverage.Text = "Total Average: " + total;
+            labelDayCounter.Text = "Done";
+        }
