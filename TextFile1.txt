@@ -92,3 +92,8 @@ int validUnits;
             labelTotalAverage.Text = "Total Average: " + total;
             labelDayCounter.Text = "Done";
         }
+
+         for (int averageCounter = 0; averageCounter < EmployeeTotal; averageCounter++)
+                        { 
+                            
+                        }
