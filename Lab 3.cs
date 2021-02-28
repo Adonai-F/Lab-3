@@ -1,4 +1,14 @@
-﻿using System;
+﻿// Adonai Ford-Williams
+// Lab 3
+// Date: Feb 27nd, 2021
+// NETD2202
+// Description: 
+// This program calculates the average of seven user inputted whole numbers for three different users. 
+// ****Will calculate entire average once done
+// ** Could not figure out why the averages wouldn't work **
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
